@@ -1,0 +1,12 @@
+<h1>Movies</h1>
+<ul>
+  <% @media.each do |medium| %>
+    <p>
+      <% if current_user.bought? medium %>
+        <%= link_to medium.name, medium_path(medium) %> - <%= link_to "Delete", delete_medium_path(medium), method: :delete %>
+      <% else %>
+        <%= link_to medium.name, medium_path(medium) %> - <%= link_to "Buy", buy_medium_path(medium), method: :post %>
+      <% end %>
+    </p>
+  <% end %>
+</ul>

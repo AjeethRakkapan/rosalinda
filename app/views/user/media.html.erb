@@ -1,0 +1,12 @@
+<h1>Purchases</h1>
+<ul>
+  <% @media.each do |user_medium| %>
+    <% medium = user_medium.medium %>
+    <p>
+      <% unless user_medium.expired? %>
+        <%= medium.name %> - <%= link_to "Delete", delete_medium_path(medium), method: :delete %>
+        <%= prettify_time user_medium.time_to_expire %>
+      <% end %>
+    </p>
+  <% end %>
+</ul>
